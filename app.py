@@ -9,7 +9,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv('DB_CONNECTION_STRING')
+app.secret_key = os.getenv('APP_SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_CONNECTION_STRING')
 
 bcrypt = Bcrypt(app)
 
